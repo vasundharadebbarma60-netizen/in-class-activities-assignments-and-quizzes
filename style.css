@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~* namiisekai's Fortune Shrine *~</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for Retro/Cute look -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Main Outer Shrine Container -->
+    <div class="shrine-wrapper">
+        
+        <!-- Header Banner -->
+        <header class="shrine-header">
+            <h1>* vasumati's Fortunes! *</h1>
+            <p class="subtitle">✨ a little digital oasis for daily luck & sweet treats ✨</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            
+            <!-- Left Sidebar: Mascot & Shrine Info -->
+            <aside class="sidebar">
+                <div class="polaroid-box">
+                    <div class="polaroid-frame">
+                        <!-- You can replace this image source with your dog/mascot image file -->
+                        <img src="download (3).jpg" alt="Mascot Dog" class="mascot-img">
+                    </div>
+                    <p class="polaroid-caption">Featured Shrine: Lucky Pup 🐾</p>
+                </div>
+
+                <div class="menu-box">
+                    <h3>🌸 Navigation</h3>
+                    <ul>
+                        <li><a href="#">🏠 Home UP!</a></li>
+                        <li><a href="#">🍪 Crack Cookie UP!</a></li>
+                        <li><a href="#">📜 Fortune Archive NEW!</a></li>
+                        <li><a href="#">💌 Guestbook</a></li>
+                    </ul>
+                </div>
+
+                <div class="news-box">
+                    <h3>📌 NEWS!</h3>
+                    <p>✨ Added interactive fortune cookies!<br>✨ Grab your daily luck today!</p>
+                </div>
+            </aside>
+
+            <!-- Right Main Area: Interactive Fortune Cookie -->
+            <main class="main-shrine">
+                
+                <!-- Info Section -->
+                <section class="info-card">
+                    <h2>What is this shrine?</h2>
+                    <p  class="cute-cursive">
+                        My fortune shrine serves as a little place for me to share daily positivity and cute vibes for my cute girlies!! 
+                        Think of it as my little digital fangirling oasis... I just drop cute fortunes and cozy thoughts here! (*^◡^*)
+                    </p>
+                    <p>
+                        Click the fortune cookie below to crack it open and reveal what destiny has in store for you today! 🍪💖
+                    </p>
+                </section>
+
+                <!-- Interactive Cookie Machine -->
+                <section class="cookie-machine">
+                    <h2>✨ Daily Fortune Cookie ✨</h2>
+                    
+                    <div class="cookie-container" onclick="crackCookie()">
+                        <!-- You can replace this with your cookie image file -->
+                        <img id="cookieImage" src="download (4).jpg"  alt="Fortune Cookie" class="cookie-graphic">
+                        <div class="click-prompt">Click to Crack! 🍪</div>
+                    </div>
+
+                    <!-- Fortune Slip Result Box -->
+                    <div id="fortuneResult" class="fortune-slip hidden">
+                        <p class="fortune-title">📜 Your Lucky Slip:</p>
+                        <p id="fortuneText" class="fortune-text"></p>
+                    </div>
+
+                    <button class="retro-btn" onclick="crackCookie()">Crack Another!</button>
+                </section>
+
+            </main>
+        </div>
+
+        <!-- Footer / Visitor Counter -->
+        <footer class="shrine-footer">
+            <p>🌸 Thanks for visiting my web shrine! 🌸</p>
+            <div class="visitor-counter">
+                <span>Visitor #:</span> 
+                <span class="counter-digits">0 0 1 3 3 7</span>
+            </div>
+            <p class="copyright">© 2026 Fortune Shrine • Designed with 💖</p>
+        </footer>
+
+    </div>
+
+    <!-- JavaScript for Cookie Cracking Action -->
+    <script>
+        const fortunes = [
+            "A sweet surprise is heading your way before the week ends! 🌸",
+            "Your boyfriend is gay ✨",
+            "god is with you toddday ... go slay baddie! 🍪",
+            "no one loves you its over",
+            "Good luck, good vibes, and endless happiness are yours today yuhhhh💖",
+            "your crush doesn't like you ⭐",
+            " your old as fuck bitch its overrrrr🐕"
+        ];
+
+        function crackCookie() {
+            const cookieImg = document.getElementById('cookieImage');
+            const resultBox = document.getElementById('fortuneResult');
+            const fortuneText = document.getElementById('fortuneText');
+
+            // Add a little wobble animation effect
+            cookieImg.style.transform = "scale(0.9) rotate(-10deg)";
+            setTimeout(() => {
+                cookieImg.style.transform = "scale(1) rotate(0deg)";
+            }, 150);
+
+            // Pick a random fortune
+            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+            
+            // Show result
+            fortuneText.innerHTML = randomFortune;
+            resultBox.classList.remove('hidden');
+        }
+    </script>
+    <script>
+    // Function to create many floating pigs on load
+    window.addEventListener('DOMContentLoaded', () => {
+        const totalPigs = 12; // Change this number if you want more or fewer pigs!
+        
+        for (let i = 0; i < totalPigs; i++) {
+            const pig = document.createElement('img');
+            
+            // Replace 'download (3).jpg' with a dedicated pig image file name if you have one, 
+            // or use your current mascot image for now!
+            pig.src = 'download (5).jpg'; 
+            pig.classList.add('floating-pig');
+            
+            // Randomly scatter them across the screen width and height
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+            
+            pig.style.left = randomX + 'px';
+            pig.style.top = randomY + 'px';
+            
+            // Give each pig a slightly different animation speed so they don't move in sync
+            pig.style.animationDuration = (4 + Math.random() * 4) + 's';
+            
+            document.body.appendChild(pig);
+        }
+    });
+</script>
+</body>
+</html>
